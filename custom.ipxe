@@ -3,10 +3,11 @@
 ### netboot.xyz-custom menu
 ###
 
-:start
-echo Hello world!
-sleep 10
-goto custom_exit
+:grubfm
+chain --autofree tftp://${next-server}/grubfm.iso || echo Custom boot grubfm.iso
+
+:grubfm
+chain --autofree tftp://${next-server}/loadfm || echo Custom boot loadfm
 
 :custom_exit
 exit 0
